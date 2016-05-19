@@ -8,13 +8,12 @@ public class Application {
   public static void main(String[] args) throws IOException {
     Arrays.sort(args);
     boolean server = Arrays.binarySearch(args, "server") > -1;
-    boolean secure = Arrays.binarySearch(args, "secure") > -1;
     if (server) {
-      System.out.println("Starting " + (secure ? "Secure" : "Plain") + " Serve");
-      new Server().start(secure);
+      System.out.println("Starting Serve");
+      new Server().start();
     } else {
-      System.out.println("Connecting " + (secure ? "Secure" : "Plain") + " Client");
-      new Client().start(secure);
+      System.out.println("Connecting Client");
+      new Client().start();
     }
   }
 }
